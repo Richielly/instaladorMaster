@@ -2,9 +2,6 @@ import streamlit as st
 from venvinstaladorMaster import api
 from time import sleep as sl
 
-import plotly.express as px
-import plotly.graph_objs as go
-
 # user = "conta@equiplano.com.br"
 # senha = "EqpAlmoxarifado1974!@#"
 
