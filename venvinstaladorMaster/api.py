@@ -57,6 +57,6 @@ def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
 
     return data
 
-def grafico(dados):
-    st.plotly_chart(dados)
+# def grafico(dados):
+#     st.plotly_chart(dados)
 
