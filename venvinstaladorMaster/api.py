@@ -26,7 +26,6 @@ def search_bd():
         lista_x_banco.append(j[0])  # tabela
         lista_y_banco.append(j[1])  # quantidade de dados
         # lista_paginas.append(j[2]) #paginas
-
     return lista_x_banco, lista_y_banco
 
 def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
@@ -49,10 +48,10 @@ def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
         lista_tabela_x.append(i['tabela'])
         lista_tabela_y.append(i['totalAlmoxarifado'])
 
-    banco = go.Bar(x=lista_tabela_x,
-                   y=y_bd)
-    almox = go.Bar(x=lista_tabela_x,
-                   y=lista_tabela_y)
+    banco = lista_tabela_x
+
+    almox = lista_tabela_x
+
     data = [banco, almox]
 
     return data
