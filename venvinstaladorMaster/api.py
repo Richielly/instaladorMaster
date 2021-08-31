@@ -2,9 +2,9 @@ import json, requests
 from requests.auth import HTTPBasicAuth
 import streamlit as st
 from time import sleep as sl
-import plotly.express as px
-import plotly.offline as py
-import plotly.graph_objs as go
+# import plotly.express as px
+# import plotly.offline as py
+# import plotly.graph_objs as go
 from search import Search
 import pandas as pd
 
