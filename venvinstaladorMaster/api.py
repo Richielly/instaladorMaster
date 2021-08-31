@@ -1,6 +1,4 @@
 import json, requests
-
-import api
 from requests.auth import HTTPBasicAuth
 import streamlit as st
 from time import sleep as sl

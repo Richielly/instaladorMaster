@@ -1,5 +1,5 @@
 import streamlit as st
-import api
+from api import search_bd, buscar_dados
 from time import sleep as sl
 
 import plotly.express as px
@@ -10,7 +10,7 @@ import plotly.graph_objs as go
 
 st.set_page_config(page_title='Conversão Almox', page_icon='equiplano-logo-vertical.png', layout = 'wide', initial_sidebar_state = 'auto')
 
-x,y = api.search_bd()
+x,y = search_bd()
 col1, col2, col3, col4, col5 = st.columns(5)
 st2 = st
 ambiente = st.sidebar.radio("Api",('Produção','Teste'))
@@ -46,14 +46,14 @@ if st.sidebar.button("Verificação tempo real"):
     st.empty()
     with st.empty():
         while (True):
-            grafico = api.buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
+            grafico = buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
             st.plotly_chart(grafico,sharing='streamlit',use_container_width=True)
             sl(tempo)
 
 if st.sidebar.button("Pré Analise"):
     st.empty()
     with st.empty():
-        almox = api.buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
+        almox = buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
         # x, y = api.search_bd()
         form = st.form("form_analise", clear_on_submit=True)
 
@@ -85,5 +85,5 @@ if st.sidebar.button("Pré Analise"):
 if st.sidebar.button("Gráfico"):
     st.empty()
     with st.empty():
-        grafico = api.buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
+        grafico = buscar_dados(user=user, password=senha, url=url, chave=chave, tempo=tempo, x_bd=x, y_bd=y)
         st.plotly_chart(grafico,sharing='streamlit',use_container_width=True)
