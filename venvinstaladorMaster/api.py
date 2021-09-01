@@ -2,13 +2,13 @@ import json, requests
 from requests.auth import HTTPBasicAuth
 import streamlit as st
 from time import sleep as sl
-# import plotly.express as px
-# import plotly.offline as py
-# import plotly.graph_objs as go
+import plotly.express as px
+import plotly.offline as py
+import plotly.graph_objs as go
 from venvinstaladorMaster import search
 import pandas as pd
 
-#localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/e58c5576-311c-4c0f-9222-6b9fd830515d
+# localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/e58c5576-311c-4c0f-9222-6b9fd830515d
 select = search.Search()
 
 @st.cache
@@ -48,10 +48,10 @@ def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
         lista_tabela_x.append(i['tabela'])
         lista_tabela_y.append(i['totalAlmoxarifado'])
 
-    banco = lista_tabela_x
-
-    almox = lista_tabela_x
-
+    banco = go.Bar(x=lista_tabela_x,
+                   y=y_bd)
+    almox = go.Bar(x=lista_tabela_x,
+                   y=lista_tabela_y)
     data = [banco, almox]
 
     return data
