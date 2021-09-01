@@ -8,7 +8,7 @@ from time import sleep as sl
 from venvinstaladorMaster import search
 import pandas as pd
 
-# localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/e58c5576-311c-4c0f-9222-6b9fd830515d
+#localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/e58c5576-311c-4c0f-9222-6b9fd830515d
 select = Search()
 
 @st.cache
