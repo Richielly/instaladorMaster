@@ -1,9 +1,9 @@
-from connection import BdConnections
+from venvinstaladorMaster import  connection
 
 class Search():
 
     def select(self):
-        con = BdConnections()
+        con = connection.BdConnections()
 
         conn = con.firebird_connection(host='192.168.56.1', database='C:\SistemasEquiplano\\492\EQUIPLANO.GDB', user='sysdba', password='masterkey', port=3050)
 
