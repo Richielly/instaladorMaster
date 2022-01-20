@@ -1,6 +1,6 @@
 # import MySQLdb # para o MySQL
 # import sqlite  # para o SQLite
-# from pyPgSQL import PgSQL # para o PostgreSQL
+import psycopg2 # para o PostgreSQL
 import fdb # para Interbase / Firebird
 # import pymssql  #para o MS-SQL. (existem outros módulos - ADOdb for Python/PHP)
 # import cx_Oracle #para o Oracle
@@ -14,11 +14,13 @@ class BdConnections:
     def sqlite_connection(self, bd):
         con = sqlite.connect(bd, mode=775)
 
-    def postgre_connection(self, host, bd, user, password):
-        con = PgSQL.connect(host=host,
-                    database=bd,
+    def postgre_connection(self, host, bd, port, user, password):
+        con = psycopg2.connect(host=host,
+                    port=port,
+                    dbname=bd,
                     user=user,
                     password=password)
+        return con
 
     def firebird_connection(self, host, database, user, password, port):
         conn = fdb.connect(host=host,

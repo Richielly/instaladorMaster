@@ -28,14 +28,14 @@ def search_bd():
         # lista_paginas.append(j[2]) #paginas
     return lista_x_banco, lista_y_banco
 
-def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
+def buscar_dados(user, password, url , chave, tempo,x_bd, y_bd):
     # print(requests.get('http://localhost:7575/almoxarifado', auth=HTTPBasicAuth(user, password)))
 
     # request = requests.get("http://realezapr.equiplano.com.br:8080/almoxarifadoBackend/integracao/movimentos/estatistica/c8a815d5-3e71-45c7-b03f-06376d57cfd8")
 
-    request = requests.get('http://' + url + chave)
+    request = requests.get('http://' + url +'/almoxarifadoBackend/integracao/movimentos/estatistica/'+ chave)
 
-    # print(request.status_code)
+    print(request.status_code)
 
     todos = json.loads(request.content)
     # print(todos)
@@ -55,7 +55,3 @@ def buscar_dados(user, password, url, chave, tempo,x_bd, y_bd):
     data = [banco, almox]
 
     return data
-
-# def grafico(dados):
-#     st.plotly_chart(dados)
-

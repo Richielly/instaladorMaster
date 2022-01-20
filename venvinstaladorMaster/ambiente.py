@@ -1,7 +1,18 @@
 # import os
 # os.system('netsh wlan show profile')
+
 from tkinter import *
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.backend_bases import key_press_handler
+from matplotlib.figure import Figure
 import psutil
+from venvinstaladorMaster import search
+
+root = Tk()
+root.title('Ambiente')
+root.geometry('400x400')
+
+
 cpu = "Quantidade CPU: ", psutil.cpu_count()
 
 memoriaLivre = "Memoria RAM Livre: {:.0f} ".format( (psutil.virtual_memory().free / 1024**2)) + " Mb."
@@ -36,9 +47,9 @@ class Application:
         self.sair["width"] = 5
         self.sair["command"] = self.widget1.quit
         self.sair.pack()
+fig = search.Search()
+grafico = fig.select()
 
-root = Tk()
-root.title('Ambiente')
-root.geometry('400x400')
 Application(root)
 root.mainloop()
+
