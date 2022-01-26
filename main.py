@@ -1,4 +1,4 @@
-import search
+from venvinstaladorMaster import search
 import streamlit as st
 from venvinstaladorMaster import api
 from time import sleep as sl
