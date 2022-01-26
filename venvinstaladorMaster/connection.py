@@ -1,6 +1,6 @@
 # import MySQLdb # para o MySQL
 # import sqlite  # para o SQLite
-import psycopg2 # para o PostgreSQL
+#import psycopg2 # para o PostgreSQL
 import fdb # para Interbase / Firebird
 # import pymssql  #para o MS-SQL. (existem outros módulos - ADOdb for Python/PHP)
 # import cx_Oracle #para o Oracle
