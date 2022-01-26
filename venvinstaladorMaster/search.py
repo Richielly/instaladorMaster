@@ -1,7 +1,7 @@
 from venvinstaladorMaster import  connection
 
 hostdborigin = 'localhost'
-dborigin = 'C:\\Users\\richielly.carvalho\Desktop\SCP_ALMOX\\004\\EQUIPLANO.FDB'
+dborigin = 'C:\\Users\\richielly.carvalho\Desktop\SCP_ALMOX\\007\\EQUIPLANO.FDB'
 userdborigin = 'sysdba'
 senhadborigin = 'masterkey'
 portdborigin = 3050
@@ -49,13 +49,13 @@ class Search():
           union all
           select 'fornecedores', count(*) from fornecedor
           union all
-          select 'centros de custo', count(*) from scp55_localexercicio where codentidade=004
+          select 'centros de custo', count(*) from scp55_localexercicio where codentidade=007
           union all
-          select 'depósitos', count(*) from sal_deposito where codentidade=004
+          select 'depósitos', count(*) from sal_deposito where codentidade=007
           union all
-          select 'entradas', count(*) from sal_movimento m join sal_tipomovimento tm on (m.idtipomovimento=tm.idtipomovimento) where m.codentidade=004 and m.quantidade > 0.00 and tm.tipomovimento='E'
+          select 'entradas', count(*) from sal_movimento m join sal_tipomovimento tm on (m.idtipomovimento=tm.idtipomovimento) where m.codentidade=007 and m.quantidade > 0.00 and tm.tipomovimento='E'
           union all
-          select 'saídas', count(*) from sal_movimento m join sal_tipomovimento tm on (m.idtipomovimento=tm.idtipomovimento) where m.codentidade=004 and m.quantidade > 0.00 and tm.tipomovimento='S'
+          select 'saídas', count(*) from sal_movimento m join sal_tipomovimento tm on (m.idtipomovimento=tm.idtipomovimento) where m.codentidade=007 and m.quantidade > 0.00 and tm.tipomovimento='S'
         )
         order by 1 """)
         lista = cur.fetchall()

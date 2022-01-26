@@ -8,6 +8,9 @@ import pandas as pd
 # user = "conta@equiplano.com.br"
 # senha = "EqpAlmoxarifado1974!@#"
 
+user = "teste"
+senha = "1"
+
 st.set_page_config(page_title='Conversão Almox', page_icon='equiplano-logo-vertical.png', layout = 'wide', initial_sidebar_state = 'auto')
 
 x,y = api.search_bd()
@@ -15,8 +18,8 @@ col1, col2, col3, col4, col5 = st.columns(5)
 
 ambiente = st.sidebar.radio("Api",('Produção','Teste'))
 
-postgre =  st.sidebar.checkbox('Analise Banco Postgre')
-firebird =  st.sidebar.checkbox('Analise Banco FireBird')
+postgre = st.sidebar.checkbox('Analise Banco Postgre')
+firebird = st.sidebar.checkbox('Analise Banco FireBird')
 
 if postgre:
     result = search.Search()
@@ -73,10 +76,10 @@ if ambiente == 'Teste':
 if ambiente == 'Produção':
     user = "conta@equiplano.com.br"
     senha = "EqpAlmoxarifado1974!@#"
-    url = st.sidebar.text_input("Url",'teixeirasoaresscp.equiplano.com.br:7575')
+    url = st.sidebar.text_input("Url",'sistemaweb.candoi.pr.gov.br:7575/almoxarifadoBackend/integracao/movimentos/estatistica/')
     if url == "":
        st.error('Favor informar a Url do end point')
-    chave = st.sidebar.text_input("Chave",'024ac745-5d96-4592-90ae-f590f1b7f6b9')
+    chave = st.sidebar.text_input("Chave",'a643e6c8-71b6-4fd8-9313-0d4051afef19')
     if chave == "":
         st.error('Favor informar a chave de acesso do end point')
     tempo = st.sidebar.number_input("Tempo de Verificação", min_value=0, max_value=10, value=10, step=1)

@@ -8,7 +8,7 @@ import plotly.graph_objs as go
 from venvinstaladorMaster import search
 import pandas as pd
 
-# localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/e58c5576-311c-4c0f-9222-6b9fd830515d
+# localhost:7575/almoxarifadoBackend/integracao/movimentos/estatistica/d53c506a-138d-4903-8ca2-c3bf339d8ece
 select = search.Search()
 
 @st.cache
@@ -29,16 +29,19 @@ def search_bd():
     return lista_x_banco, lista_y_banco
 
 def buscar_dados(user, password, url , chave, tempo,x_bd, y_bd):
-    # print(requests.get('http://localhost:7575/almoxarifado', auth=HTTPBasicAuth(user, password)))
+    #print(requests.get('http://localhost:7575/almoxarifado', auth=HTTPBasicAuth(user, password)))
+    #print(requests.get('http://localhost:7575/conta', auth=HTTPBasicAuth(user, password)))
 
     # request = requests.get("http://realezapr.equiplano.com.br:8080/almoxarifadoBackend/integracao/movimentos/estatistica/c8a815d5-3e71-45c7-b03f-06376d57cfd8")
 
-    request = requests.get('http://' + url +'/almoxarifadoBackend/integracao/movimentos/estatistica/'+ chave)
+    request = requests.get('http://' + url + chave)
 
-    print(request.status_code)
+    #print ('http://' + url + chave)
+
+    #print(request.status_code)
 
     todos = json.loads(request.content)
-    # print(todos)
+    #print('Tabelas na Api: ',todos)
 
     lista_tabela_x=[]
     lista_tabela_y = []
